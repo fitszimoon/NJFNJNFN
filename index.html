@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <div class="quiz-container" id="quiz">
+        <div id="quiz-title">Quiz: Ethanol as Fuel</div>
+
+        <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+        <div class="sidebar" id="sidebar">
+        <a href="/">Home</a>
+        <a href="#">About</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        
+        <div id="question">Question text here</div>
+            
+        <!-- Options Buttons -->
+        <div class="options">
+            <button class="option" onclick="checkAnswer(0)">Option 1</button>
+            <button class="option" onclick="checkAnswer(1)">Option 2</button>
+            <button class="option" onclick="checkAnswer(2)">Option 3</button>
+            <button class="option" onclick="checkAnswer(3)">Option 4</button>
+        </div>
+
+        <!-- Button container for Back and Next buttons -->
+        <div class="button-container">
+            <button id="back" onclick="goBack()" class="nav-button" style="display: none;">Back</button>
+            <button id="submit" onclick="nextQuestion()" class="nav-button">Next</button>
+        </div>
+
+        <div id="score-container">
+            Your score: <span id="score">0</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
