@@ -187,13 +187,14 @@ window.onload = function () {
 };
 
 // Function to toggle the sidebar visibility and adjust main content
-function toggleSidebar() {
+function toggleQuizSidebar() {
     var sidebar = document.getElementById('sidebar');
     var mainContent = document.querySelector('.quiz-container');
     sidebar.classList.toggle('open');
     mainContent.classList.toggle('shifted');
 }
-function toggleSidebar() {
+
+function toggleScoreSidebar() {
     var sidebar = document.getElementById('sidebar');
     var mainContent = document.querySelector('.score-history-container');
     sidebar.classList.toggle('open');
