@@ -154,6 +154,10 @@ body {
     transform: scale(1.1) rotate(-3deg);
 }
 
+.quiz-container {
+    transition: margin-left 0.5s ease-in-out;
+}
+
 .quiz-container.shifted {
     margin-left: 250px;
 }
