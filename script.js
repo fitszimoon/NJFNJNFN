@@ -1,3 +1,27 @@
+let username = "";
+
+// Function to capture the username and start the quiz
+function startQuiz() {
+    // Get the inputted username
+    username = document.getElementById("username-input").value;
+
+    if (username.trim() === "") {
+        alert("Please enter a valid username.");
+        return;
+    }
+
+    // Hide the username page
+    document.getElementById("username-page").style.display = "none";
+
+    // Display the quiz container
+    document.getElementById("quiz").style.display = "block";
+
+    // Load the first question
+    loadQuestion();
+}
+
+// Existing functions like loadQuestion(), checkAnswer(), toggleSidebar() remain the same.
+
 let questions = [
     {  //Q1
         question: "Ethanol is primaraily made of??",
