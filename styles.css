@@ -4,7 +4,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
 }
 
@@ -12,10 +11,10 @@ body {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 30px 60px;
-    width: 100%;
     max-width: 400px;
     text-align: center;
-    margin-top: 80px; /* Added space above the quiz container */
+    margin-top: 90px;
+    margin-bottom: 90px;
 }
 
 /* Shifted Quiz Container */
@@ -27,6 +26,7 @@ body {
 #quiz-title {
     font-size: 24px;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 #question {
@@ -87,10 +87,10 @@ body {
 /* Progress Bar Styles */
 .progress-bar-container {
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: #ded2d2;
     border-radius: 25px;
     height: 20px;
-    margin-top: -135px;
+    margin-top: -220px;
     margin-bottom: 20px;/* Optional spacing */
 }
 
@@ -124,17 +124,22 @@ body {
 }
 
 .sidebar a {
+    background-color:rgba(251,33,3,0.5);
     color: white;
     text-decoration: none;
     display: block;
-    margin: 15px 0;
+    margin: 0px;
+    margin-top: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
     font-size: 1.2rem;
     text-align: center;
+    padding: 15px;
     transition: transform 0.3s ease-in-out;
 }
 
 .sidebar a:hover {
-    color: #e3000b;
+    color: #fff;
     transform: scale(1.1) rotate(-3deg);
 }
 
@@ -144,7 +149,7 @@ body {
 
 /* Toggle Button Styles */
 .toggle-btn {
-    position: absolute;
+    position: fixed;
     top: 20px;
     left: 20px;
     background-color: #e3000b;
@@ -181,4 +186,3 @@ body {
 .feedback-wrong {
     background-color: #e3000b;
     color: white;
-}
