@@ -187,17 +187,19 @@ window.onload = function () {
 };
 
 // Function to toggle the sidebar visibility and adjust main content
-function toggleQuizSidebar() {
+function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
-    var mainContent = document.querySelector('.quiz-container');
+    var mainContent = document.getElementById('main-content'); // Ensure you reference the correct main content element
     sidebar.classList.toggle('open');
-    mainContent.classList.toggle('shifted');
+    
+    // Toggle the shifted class for the quiz and score history containers
+    var quizContainer = document.querySelector('.quiz-container');
+    var scoreHistoryContainer = document.querySelector('.score-history-container');
+    quizContainer.classList.toggle('shifted');
+    scoreHistoryContainer.classList.toggle('shifted');
+
+    mainContent.classList.toggle('shifted'); // This is already included in your function
+    document.getElementById('header').classList.toggle('shifted'); // This also remains unchanged
 }
 
-function toggleScoreSidebar() {
-    var sidebar = document.getElementById('sidebar');
-    var mainContent = document.querySelector('.score-history-container');
-    sidebar.classList.toggle('open');
-    mainContent.classList.toggle('shifted');
-}
 
