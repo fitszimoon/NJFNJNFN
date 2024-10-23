@@ -1,66 +1,42 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Website</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <header>
-        <div class="username-container" id="username-page">
-            <h1>Welcome! Please Enter Your Name</h1>
-            <input type="text" id="username-input" placeholder="Enter your name">
-            <button id="start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
-        </div>
-    </header>
 
-    <main id="main-content">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="main-content" id="main-content">
         <div class="quiz-container">
-            <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
-
-            <div class="sidebar" id="quiz-sidebar">
-                <a href="/">Home</a>
-                <a href="#">About</a>
-                <a href="#">Gallery</a>
-                <a href="#">Contact</a>
-            </div>
-
-            <h2 id="quiz-title">Quiz: Ethanol as Fuel</h2>
-
-            <!-- Progress Bar -->
-            <div class="progress-bar-container">
+            <h1 id="quiz-title">Quiz Title</h1>
+            <div id="progress-bar-container" class="progress-bar-container">
                 <div id="progress-bar"></div>
             </div>
-
-            <div id="question">Question text here</div>
-
-            <!-- Options Buttons -->
+            <div id="question"></div>
             <div class="options">
-                <button class="option" onclick="checkAnswer(0)">Option 1</button>
-                <button class="option" onclick="checkAnswer(1)">Option 2</button>
-                <button class="option" onclick="checkAnswer(2)">Option 3</button>
-                <button class="option" onclick="checkAnswer(3)">Option 4</button>
+                <button class="option"></button>
+                <button class="option"></button>
+                <button class="option"></button>
+                <button class="option"></button>
             </div>
-
-            <!-- Button container for Back and Next buttons -->
             <div class="button-container">
-                <button id="back" onclick="goBack()" class="nav-button" style="display: none;">Back</button>
-                <button id="submit" onclick="nextQuestion()" class="nav-button">Next</button>
+                <button class="nav-button" id="back" onclick="goBack()">Back</button>
+                <button class="nav-button" id="submit">Next</button>
             </div>
-
-            <div id="score-container">
-                Your score: <span id="score">0</span>
-            </div>
+            <div id="score-container">Score: <span id="score">0</span></div>
         </div>
+    </div>
 
-        <!-- Scores History Section -->
-        <div class="score-history-container" id="score-history" style="display:none;">
-            <h2>Score History</h2>
-            <ul id="score-list"></ul>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>
