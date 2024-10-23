@@ -12,10 +12,10 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 400px; /* Set a consistent width */
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 400px;
     text-align: center;
-    transition: margin-left 0.3s ease-in-out; /* Transition for smooth movement */
 }
 
 /* New class for shifting the quiz container */
@@ -90,8 +90,9 @@ body {
     width: 100%;
     background-color: #f3f3f3;
     border-radius: 25px;
-    margin-bottom: 20px;
+    margin: 0; /* Remove margin if needed */
     height: 20px;
+    margin-top: 20px; /* Optional spacing below previous elements */
 }
 
 #progress-bar {
@@ -158,24 +159,4 @@ body {
 
 .toggle-btn:hover {
     transform: scale(1.1) rotate(-3deg);
-}
-.feedback-correct, .feedback-wrong {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 1200;
-    transition: opacity 0.5s ease;
-}
-
-.feedback-correct {
-    background-color: #4caf50;
-    color: white;
-}
-
-.feedback-wrong {
-    background-color: #e3000b;
-    color: white;
 }
