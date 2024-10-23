@@ -107,22 +107,28 @@ function loadQuestion() {
 // Check if the selected answer is correct
 function checkAnswer(selectedOption, correctAnswerIndex) {
     let correctAnswer = questions[currentQuestionIndex].options[correctAnswerIndex];
-    
+    let feedbackElement = document.getElementById("feedback");
+
     if (selectedOption === correctAnswer) {
         score++;
         document.getElementById("score").textContent = score;
-        alert("Correct!");
+        feedbackElement.textContent = "Correct! Well done!";
+        feedbackElement.className = "feedback-correct"; // Add correct feedback styling
     } else {
-        alert("Wrong answer! Moving to next question.");
+        feedbackElement.textContent = "Wrong answer! Try the next one.";
+        feedbackElement.className = "feedback-wrong"; // Add wrong feedback styling
+    }
+
+    // Show the feedback and hide it after a delay
+    feedbackElement.style.display = "block";
+    setTimeout(() => {
+        feedbackElement.style.display = "none";
+    }, 2000); // Adjust the timeout duration as needed (2 seconds in this case)
+
+    answeredQuestions.push(currentQuestionIndex);
+    nextQuestion();
     }
     
-    // Add current question to the list of answered questions
-    answeredQuestions.push(currentQuestionIndex);
-    
-    // Move to the next question after checking the answer (whether correct or wrong)
-    nextQuestion();
-}
-
 function nextQuestion() {
     currentQuestionIndex++;
     
