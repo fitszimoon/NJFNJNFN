@@ -15,6 +15,12 @@ body {
     padding: 20px;
     width: 400px; /* Set a consistent width */
     text-align: center;
+    transition: margin-left 0.3s ease-in-out; /* Transition for smooth movement */
+}
+
+/* New class for shifting the quiz container */
+.quiz-container.shifted {
+    margin-left: 250px; /* Adjust this value based on your sidebar width */
 }
 
 #quiz-title {
@@ -108,7 +114,7 @@ body {
     height: 100%;
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -250px; /* Initially hidden */
     transition: left 0.3s;
     padding: 20px;
     display: flex;
@@ -133,7 +139,7 @@ body {
 }
 
 .sidebar.open {
-    left: 0;
+    left: 0; /* Slide in the sidebar */
 }
 
 .toggle-btn {
@@ -152,9 +158,4 @@ body {
 
 .toggle-btn:hover {
     transform: scale(1.1) rotate(-3deg);
-}
-
-.quiz-container.shifted {
-    margin-left: 250px;
-    transition: transform 0.3s ease-in-out;
 }
