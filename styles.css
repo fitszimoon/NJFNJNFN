@@ -11,8 +11,8 @@ body {
 .quiz-container {
     background-color: #ffffff;
     border-radius: 8px;
-    padding: 30px;
-    width; 100%;
+    padding: 30px 60px;
+    width: 100%;
     max-width: 400px;
     text-align: center;
     margin-top: 80px; /* Added space above the quiz container */
