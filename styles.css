@@ -13,30 +13,32 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%; /* Full width for smaller screens */
-    max-width: 400px; /* Set a maximum width */
+    width: 400px; /* Set a consistent width */
     text-align: center;
 }
 
 #quiz-title {
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 #question {
     font-size: 22px; /* Adjusted font size */
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Styles for the options */
 .options {
     display: flex; /* Use flexbox for alignment */
     flex-direction: column; /* Change to column layout */
-    align-items: stretch; /* Stretch buttons to fill width */
+    align-items: center; /* Center the buttons horizontally */
     margin-bottom: 20px; /* Spacing around the options */
 }
 
 .option {
+    display: block;
     background-color: #3498db; /* Blue background color */
     color: white;
     border: none;
@@ -51,7 +53,7 @@ body {
 
 .option:hover {
     background-color: #2980b9; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight scaling on hover */
+    transform: scale(1.1) rotate(-3deg);
 }
 
 /* Styles for the navigation buttons (Back and Next) */
@@ -84,11 +86,10 @@ body {
     border-radius: 25px;
     margin-bottom: 20px;
     height: 20px;
-    position: relative; /* Allow absolute positioning of text */
 }
 
 #progress-bar {
-    width: 0%; /* Initial progress */
+    width: 0%;
     height: 100%;
     background-color: #4caf50; /* Green progress bar */
     border-radius: 25px;
@@ -128,13 +129,11 @@ body {
 
 .sidebar a:hover {
     color: #e3000b;
-    background-color: rgba(227, 0, 11, 0.2); /* Light red background */
-    padding: 10px; /* Add padding for better click area */
-    transform: scale(1.1); /* Scale on hover */
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .sidebar.open {
-    left: 0; /* Show sidebar */
+    left: 0;
 }
 
 .toggle-btn {
@@ -152,38 +151,69 @@ body {
 }
 
 .toggle-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(-3deg);
 }
 
-.main-content.shifted {
+.quiz-container {
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.quiz-container.shifted {
     margin-left: 250px;
-    transition: transform 0.3s ease-in-out;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .quiz-container {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-    
-    .sidebar {
-        width: 200px; /* Slightly smaller sidebar */
-    }
-    
-    .toggle-btn {
-        padding: 8px 12px;
-        font-size: 1rem;
-    }
-    
-    .nav-button {
-        font-size: 14px; /* Adjust button font size */
-    }
-    
-    #question {
-        font-size: 20px; /* Smaller font size for smaller screens */
-    }
-    
-    .option {
-        font-size: 1.2rem; /* Adjust button font size */
-    }
+/* Username Input Page */
+.username-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+#username-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#username-input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+#start-quiz-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#start-quiz-btn:hover {
+    background-color: #45a049;
+}
+/* Score History Section */
+.score-history-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#score-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#score-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 18px;
 }
