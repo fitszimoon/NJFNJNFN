@@ -203,6 +203,10 @@ body {
 .score-history-container {
     margin-top: 30px;
     text-align: center;
+    transition: margin-left 0.3s ease-in-out;
+}
+.quiz-container.shifted {
+    margin-left: 250px;
 }
 
 #score-list {
