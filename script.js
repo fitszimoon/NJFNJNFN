@@ -1,14 +1,11 @@
-let username = "";
-let score = 0;
-let scoreHistory = [];
 let questions = [
     {  //Q1
-        question: "Ethanol is primarily made of??",
-        options: ["Corn", "Acids", "Produced by animals", "Starch"],
+        question: "Ethanol is primaraily made of??",
+        options: ["Corn", "Acids", "Produce by animals", "Starch"],
         correctAnswer: 0
     },
     {  //Q2
-        question: "What is the starting process in making ethanol?",
+        question: "What is the starting prcoess in making ethanol?",
         options: ["Distillation of starch", "Fermentation of sugar", "Hydrolysis of cellulose", "Synthesis of glucose"],
         correctAnswer: 1
     },
@@ -23,8 +20,8 @@ let questions = [
         correctAnswer: 0
     },
     {  //Q5
-        question: "How can ethanol lead to improved overall efficiency despite its low energy content?",
-        options: ["Ethanol requires less oil", "When appropriately blended, it can improve power mileage", "Ethanol has a higher energy density enhancing efficiency", "Ethanol engines have better combustion control, optimizing performance"],
+        question: "How can ethanol lead to improved overall efficiency despite it's low energy content?",
+        options: ["Ethanol requires less oil", "When appropriately blended, can prove power mileage", "Ethanol has a higher energy density enhancing efficiency", "Ethanol engines have better combustion control, optimizing performance"],
         correctAnswer: 1
     },
     {   //Q6
@@ -39,11 +36,11 @@ let questions = [
     },
     {   //Q8
         question: "What is the role of the spark in an Otto cycle engine?",
-        options: ["To compress the air-fuel mixture before ignition", "To ignite the air-gasoline mixture, causing an explosive release of heat energy", "To cool the combustion chamber during operation", "To control the exhaust gases after combustion"],
+        options: ["To compress the air-fuel mixture before ignition", " To ignite the air-gasoline mixture, causing an explosive release of heat energy", "To cool the combustion chamber during operation", "To control the exhaust gases after combustion"],
         correctAnswer: 1
     },  
     {   //Q9
-        question: "Who designed the first internal combustion engine?",
+        question: "Who designed the first internal combustion engine",
         options: ["Samuel Morey", "Sammuel Morey", "Nicolaus Otto", "Nicolas Otto"],
         correctAnswer: 0
     },
@@ -55,7 +52,8 @@ let questions = [
 ];
 
 let currentQuestionIndex = 0;
-let answeredQuestions = [];
+let score = 0;
+let answeredQuestions = [];  // Store indices of answered questions
 
 // Fisher-Yates shuffle for randomizing the array
 function shuffle(array) {
@@ -68,65 +66,48 @@ function shuffle(array) {
 // Randomize the questions at the start
 shuffle(questions);
 
-// Function to capture the username and start the quiz
-function startQuiz() {
-    username = document.getElementById("username-input").value;
-
-    if (username.trim() === "") {
-        alert("Please enter a valid username.");
-        return;
-    }
-
-    document.getElementById("username-page").style.display = "none";
-    document.getElementById("quiz").style.display = "block";
-    loadQuestion();
-}
-
-// Function to save score after quiz completion
-function saveScore() {
-    scoreHistory.push({ username: username, score: score });
-    localStorage.setItem('scoreHistory', JSON.stringify(scoreHistory));
-    displayScoreHistory();
-}
-
-// Function to display score history
-function displayScoreHistory() {
-    const scoreList = document.getElementById('score-list');
-    scoreList.innerHTML = "";
-
-    scoreHistory.forEach(entry => {
-        let li = document.createElement('li');
-        li.textContent = `${entry.username}: ${entry.score} points`;
-        scoreList.appendChild(li);
-    });
-
-    document.getElementById('score-history').style.display = 'block';
-}
-
 // Load the question and shuffle the options
 function loadQuestion() {
+    // Skip already answered questions when going back
+    while (answeredQuestions.includes(currentQuestionIndex) && currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+    }
+
     let currentQuestion = questions[currentQuestionIndex];
-    let options = currentQuestion.options.slice();
+    let options = currentQuestion.options.slice(); // Create a copy of options array
+    
+    // Shuffle the options for random order
     shuffle(options);
-
+    
     document.getElementById("question").textContent = currentQuestion.question;
+    
     let buttons = document.getElementsByClassName("option");
-
+    
+    // Display shuffled options
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].textContent = options[i];
-        buttons[i].onclick = function () {
+        
+        // Check if the selected option matches the original correct answer
+        buttons[i].onclick = function() {
             checkAnswer(options[i], currentQuestion.correctAnswer);
         };
     }
 
     // Show or hide the "Back" button based on the current question index and unanswered questions
-    document.getElementById("back").style.display = (currentQuestionIndex === 0 || !canGoBack()) ? "none" : "block";
+    if (currentQuestionIndex === 0 || !canGoBack()) {
+        document.getElementById("back").style.display = "none"; // Hide "Back" button on the first question or no unanswered questions left
+    } else {
+        document.getElementById("back").style.display = "block"; // Show "Back" button after the first question
+    }
+    
+    // Update the progress bar
     updateProgressBar();
 }
 
 // Check if the selected answer is correct
 function checkAnswer(selectedOption, correctAnswerIndex) {
     let correctAnswer = questions[currentQuestionIndex].options[correctAnswerIndex];
+    
     if (selectedOption === correctAnswer) {
         score++;
         document.getElementById("score").textContent = score;
@@ -134,37 +115,46 @@ function checkAnswer(selectedOption, correctAnswerIndex) {
     } else {
         alert("Wrong answer! Moving to next question.");
     }
-
+    
+    // Add current question to the list of answered questions
     answeredQuestions.push(currentQuestionIndex);
+    
+    // Move to the next question after checking the answer (whether correct or wrong)
     nextQuestion();
 }
 
 function nextQuestion() {
     currentQuestionIndex++;
-
+    
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
     } else {
+        // Display quiz completion message and final score
         alert("Quiz completed! Your final score is " + score);
-        saveScore();
+        
+        // Optionally, you can also display a message in the HTML
         document.getElementById("question").textContent = "Quiz Complete! Final Score: " + score;
-        document.getElementsByClassName("options")[0].style.display = "none";
-        document.getElementById("submit").style.display = "none";
+        document.getElementsByClassName("options")[0].style.display = "none"; // Hide options after completion
+        document.getElementById("submit").style.display = "none"; // Hide submit button after completion
         document.getElementById("back").style.display = "none"; // Hide back button after completion
     }
 }
 
+// Go back to the previous unanswered question
 function goBack() {
     if (canGoBack()) {
         currentQuestionIndex--;
+        
         // Skip already answered questions
         while (answeredQuestions.includes(currentQuestionIndex) && currentQuestionIndex > 0) {
             currentQuestionIndex--;
         }
+        
         loadQuestion();
     }
 }
 
+// Check if we can go back to a previous unanswered question
 function canGoBack() {
     for (let i = currentQuestionIndex - 1; i >= 0; i--) {
         if (!answeredQuestions.includes(i)) {
@@ -174,30 +164,29 @@ function canGoBack() {
     return false;
 }
 
+// Update the progress bar
 function updateProgressBar() {
-    let progress = (answeredQuestions.length / questions.length) * 100;
+    let progress;
+
+    // If all questions are answered, set the progress to 100%
+    if (answeredQuestions.length === questions.length) {
+        progress = 100;
+    } else {
+        progress = (answeredQuestions.length / questions.length) * 100;
+    }
+
     document.getElementById("progress-bar").style.width = progress + "%";
 }
 
+// Load the first question on page load
 window.onload = function () {
-    const storedScores = localStorage.getItem('scoreHistory');
-    if (storedScores) {
-        scoreHistory = JSON.parse(storedScores);
-        displayScoreHistory();
-    }
     loadQuestion();
 };
 
-// Function to toggle the sidebar visibility and adjust main content
 function toggleSidebar() {
-    let sidebar = document.getElementById('sidebar');
-    let mainContent = document.getElementById('main-content');
-
-    if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-        mainContent.style.marginLeft = '0';
-    } else {
-        sidebar.classList.add('open');
-        mainContent.style.marginLeft = '250px'; // Adjust based on your sidebar width
-    }
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    sidebar.classList.toggle('open');
+    mainContent.classList.toggle('shifted');
+    document.getElementById('header').classList.toggle('shifted');
 }
