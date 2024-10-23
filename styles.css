@@ -32,7 +32,7 @@ body {
 .options {
     display: flex; /* Use flexbox for alignment */
     flex-direction: column; /* Change to column layout */
-    align-items: center; /* Center the buttons horizontally */
+    align-items: stretch; /* Stretch buttons to fill width */
     margin-bottom: 20px; /* Spacing around the options */
 }
 
@@ -51,7 +51,7 @@ body {
 
 .option:hover {
     background-color: #2980b9; /* Darker blue on hover */
-    transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.05); /* Slight scaling on hover */
 }
 
 /* Styles for the navigation buttons (Back and Next) */
@@ -84,10 +84,11 @@ body {
     border-radius: 25px;
     margin-bottom: 20px;
     height: 20px;
+    position: relative; /* Allow absolute positioning of text */
 }
 
 #progress-bar {
-    width: 0%;
+    width: 0%; /* Initial progress */
     height: 100%;
     background-color: #4caf50; /* Green progress bar */
     border-radius: 25px;
@@ -127,11 +128,13 @@ body {
 
 .sidebar a:hover {
     color: #e3000b;
-    transform: scale(1.1) rotate(-3deg);
+    background-color: rgba(227, 0, 11, 0.2); /* Light red background */
+    padding: 10px; /* Add padding for better click area */
+    transform: scale(1.1); /* Scale on hover */
 }
 
 .sidebar.open {
-    left: 0;
+    left: 0; /* Show sidebar */
 }
 
 .toggle-btn {
@@ -149,7 +152,7 @@ body {
 }
 
 .toggle-btn:hover {
-    transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1);
 }
 
 .main-content.shifted {
@@ -173,7 +176,7 @@ body {
     }
     
     .nav-button {
-        font-size: 14px;
+        font-size: 14px; /* Adjust button font size */
     }
     
     #question {
