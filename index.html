@@ -7,67 +7,59 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
-    <!-- Username Input Page -->
-    <div class="username-container" id="username-page">
-        <div id="username-title">Welcome! Please Enter Your Name</div>
-        <input type="text" id="username-input" placeholder="Enter your name">
-        <button id="start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
-    </div>
+    <header>
+        <div class="username-container" id="username-page">
+            <h1>Welcome! Please Enter Your Name</h1>
+            <input type="text" id="username-input" placeholder="Enter your name">
+            <button id="start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+    </header>
 
-    <!-- Quiz Container -->
-    <div class="sidebar" id="sidebar"> 
-    <!-- Sidebar content here -->
-    </div>
-       <div id="main-content">
-       <div class="quiz-container">
-        <!-- Quiz content here -->
-    </div>
-       <div class="score-history-container">
-        <!-- Score history content here -->
-    </div>
-        <div id="quiz-title">Quiz: Ethanol as Fuel</div>
+    <main id="main-content">
+        <div class="quiz-container">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
 
-        <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+            <div class="sidebar" id="quiz-sidebar">
+                <a href="/">Home</a>
+                <a href="#">About</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </div>
 
-        <div class="sidebar" id="sidebar">
-            <a href="/">Home</a>
-            <a href="#">About</a>
-            <a href="#">Gallery</a>
-            <a href="#">Contact</a>
+            <h2 id="quiz-title">Quiz: Ethanol as Fuel</h2>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+
+            <div id="question">Question text here</div>
+
+            <!-- Options Buttons -->
+            <div class="options">
+                <button class="option" onclick="checkAnswer(0)">Option 1</button>
+                <button class="option" onclick="checkAnswer(1)">Option 2</button>
+                <button class="option" onclick="checkAnswer(2)">Option 3</button>
+                <button class="option" onclick="checkAnswer(3)">Option 4</button>
+            </div>
+
+            <!-- Button container for Back and Next buttons -->
+            <div class="button-container">
+                <button id="back" onclick="goBack()" class="nav-button" style="display: none;">Back</button>
+                <button id="submit" onclick="nextQuestion()" class="nav-button">Next</button>
+            </div>
+
+            <div id="score-container">
+                Your score: <span id="score">0</span>
+            </div>
         </div>
 
-        
-        <!-- Progress Bar -->
-        <div class="progress-bar-container">
-            <div id="progress-bar"></div>
+        <!-- Scores History Section -->
+        <div class="score-history-container" id="score-history" style="display:none;">
+            <h2>Score History</h2>
+            <ul id="score-list"></ul>
         </div>
-
-        <div id="question">Question text here</div>
-
-        <!-- Options Buttons -->
-        <div class="options">
-            <button class="option" onclick="checkAnswer(0)">Option 1</button>
-            <button class="option" onclick="checkAnswer(1)">Option 2</button>
-            <button class="option" onclick="checkAnswer(2)">Option 3</button>
-            <button class="option" onclick="checkAnswer(3)">Option 4</button>
-        </div>
-
-        <!-- Button container for Back and Next buttons -->
-        <div class="button-container">
-            <button id="back" onclick="goBack()" class="nav-button" style="display: none;">Back</button>
-            <button id="submit" onclick="nextQuestion()" class="nav-button">Next</button>
-        </div>
-
-        <div id="score-container">
-            Your score: <span id="score">0</span>
-        </div>
-    </div>
-
-    <!-- Scores History Section -->
-    <div class="score-history-container" id="score-history" style="display:none;">
-        <h2>Score History</h2>
-        <ul id="score-list"></ul>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
