@@ -185,8 +185,7 @@ window.onload = function () {
 
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
-    var mainContent = document.getElementById('main-content');
+    var mainContent = document.getElementById('.quiz-container');
     sidebar.classList.toggle('open');
     mainContent.classList.toggle('shifted');
-    document.getElementById('header').classList.toggle('shifted');
 }
