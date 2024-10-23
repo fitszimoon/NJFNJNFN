@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Adjusted background color */
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 400px; /* Set a consistent width */
+    width: 400px;
     text-align: center;
 }
 
@@ -24,43 +24,43 @@ body {
 }
 
 #question {
-    font-size: 22px; /* Adjusted font size */
+    font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
 }
 
 /* Styles for the options */
 .options {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Change to column layout */
-    align-items: center; /* Center the buttons horizontally */
-    margin-bottom: 20px; /* Spacing around the options */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .option {
     display: block;
-    background-color: #3498db; /* Blue background color */
+    background-color: #3498db;
     color: white;
     border: none;
     padding: 10px;
-    margin: 5px 0; /* Space between buttons */
-    cursor: pointer; /* Pointer on hover */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 1.5rem; /* Consistent font size */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth effect */
-    width: 100%; /* Set a consistent width for options */
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
 }
 
 .option:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: scale(1.1) rotate(-3deg);
+    background-color: #2980b9;
+    transform: scale(1.05);
 }
 
 /* Styles for the navigation buttons (Back and Next) */
 .button-container {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Place buttons at opposite ends */
-    margin: 20px 0; /* Spacing around the buttons */
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
 .nav-button {
@@ -68,15 +68,15 @@ body {
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #4caf50; /* Green background */
-    color: white; /* Text color */
-    cursor: pointer; /* Pointer on hover */
-    flex: 1; /* Allow buttons to grow equally */
-    margin: 0 5px; /* Space between buttons */
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
 }
 
 .nav-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
 /* Styles for the progress bar */
@@ -91,7 +91,7 @@ body {
 #progress-bar {
     width: 0%;
     height: 100%;
-    background-color: #4caf50; /* Green progress bar */
+    background-color: #4caf50;
     border-radius: 25px;
 }
 
@@ -193,27 +193,50 @@ body {
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 #start-quiz-btn:hover {
     background-color: #45a049;
 }
+
 /* Score History Section */
 .score-history-container {
-    margin-top: 30px;
-    text-align: center;
+    padding: 20px;
+    background-color: #fff; /* Ensure it's distinct from the background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #score-list {
     list-style-type: none;
-    padding: 0;
+    padding: 80px;
 }
 
 #score-list li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    background-color: #dffe34;
+    padding: 20px;
+    margin-bottom: 30px;
     font-size: 18px;
+}
+
+/* Feedback Messages */
+.feedback-correct, .feedback-wrong {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1200;
+    transition: opacity 0.5s ease;
+}
+
+.feedback-correct {
+    background-color: #4caf50;
+    color: white;
+}
+
+.feedback-wrong {
+    background-color: #e3000b;
+    color: white;
 }
