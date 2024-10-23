@@ -189,8 +189,14 @@ window.onload = function () {
 // Function to toggle the sidebar visibility and adjust main content
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
-    var mainContent = document.getElementById('quiz-container');
+    var mainContent = document.querySelector('.quiz-container');
     sidebar.classList.toggle('open');
     mainContent.classList.toggle('shifted');
-    document.getElementById('header').classList.toggle('shifted');
 }
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.querySelector('.');
+    sidebar.classList.toggle('open');
+    mainContent.classList.toggle('shifted');
+}
+
