@@ -119,7 +119,8 @@ function loadQuestion() {
         };
     }
 
-    document.getElementById("back").style.display = currentQuestionIndex === 0 || !canGoBack() ? "none" : "block";
+    // Show or hide the "Back" button based on the current question index and unanswered questions
+    document.getElementById("back").style.display = (currentQuestionIndex === 0 || !canGoBack()) ? "none" : "block";
     updateProgressBar();
 }
 
@@ -149,13 +150,14 @@ function nextQuestion() {
         document.getElementById("question").textContent = "Quiz Complete! Final Score: " + score;
         document.getElementsByClassName("options")[0].style.display = "none";
         document.getElementById("submit").style.display = "none";
-        document.getElementById("back").style.display = "none";
+        document.getElementById("back").style.display = "none"; // Hide back button after completion
     }
 }
 
 function goBack() {
     if (canGoBack()) {
         currentQuestionIndex--;
+        // Skip already answered questions
         while (answeredQuestions.includes(currentQuestionIndex) && currentQuestionIndex > 0) {
             currentQuestionIndex--;
         }
@@ -188,18 +190,14 @@ window.onload = function () {
 
 // Function to toggle the sidebar visibility and adjust main content
 function toggleSidebar() {
-    var sidebar = document.getElementById('sidebar');
-    var mainContent = document.getElementById('main-content'); // Ensure you reference the correct main content element
-    sidebar.classList.toggle('open');
-    
-    // Toggle the shifted class for the quiz and score history containers
-    var quizContainer = document.querySelector('.quiz-container');
-    var scoreHistoryContainer = document.querySelector('.score-history-container');
-    quizContainer.classList.toggle('shifted');
-    scoreHistoryContainer.classList.toggle('shifted');
+    let sidebar = document.getElementById('sidebar');
+    let mainContent = document.getElementById('main-content');
 
-    mainContent.classList.toggle('shifted'); // This is already included in your function
-    document.getElementById('header').classList.toggle('shifted'); // This also remains unchanged
+    if (sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        mainContent.style.marginLeft = '0';
+    } else {
+        sidebar.classList.add('open');
+        mainContent.style.marginLeft = '250px'; // Adjust based on your sidebar width
+    }
 }
-
-
