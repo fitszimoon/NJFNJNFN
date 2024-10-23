@@ -188,14 +188,9 @@ window.onload = function () {
 
 // Function to toggle the sidebar visibility and adjust main content
 function toggleSidebar() {
-    let sidebar = document.getElementById('sidebar');
-    let mainContent = document.getElementById('.quiz-container');
-
-    if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-        mainContent.style.marginLeft = '0';
-    } else {
-        sidebar.classList.add('open');
-        mainContent.style.marginLeft = '250px'; // Adjust based on your sidebar width
-    }
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    sidebar.classList.toggle('open');
+    mainContent.classList.toggle('shifted');
+    document.getElementById('header').classList.toggle('shifted');
 }
