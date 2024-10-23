@@ -195,7 +195,7 @@ function toggleSidebar() {
 }
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
-    var mainContent = document.querySelector('.');
+    var mainContent = document.querySelector('.score-history-container');
     sidebar.classList.toggle('open');
     mainContent.classList.toggle('shifted');
 }
