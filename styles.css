@@ -155,7 +155,7 @@ body {
 }
 
 .quiz-container {
-    transition: margin-left 1.0s linear;
+    transition: margin-left 0.5s ease-in-out;
 }
 
 .quiz-container.shifted {
