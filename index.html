@@ -7,33 +7,25 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
-    <!-- Username Input Page -->
-    <div class="username-container" id="username-page">
-        <div id="username-title">Welcome! Please Enter Your Name</div>
-        <input type="text" id="username-input" placeholder="Enter your name">
-        <button id="start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
-    </div>
-
-    <!-- Quiz Container -->
-    <div class="quiz-container" id="quiz" style="display:none;">  <!-- Hidden initially -->
+    <div class="quiz-container" id="quiz">
         <div id="quiz-title">Quiz: Ethanol as Fuel</div>
 
         <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
 
         <div class="sidebar" id="sidebar">
-            <a href="/">Home</a>
-            <a href="#">About</a>
-            <a href="#">Gallery</a>
-            <a href="#">Contact</a>
+        <a href="/">Home</a>
+        <a href="#">About</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
         </div>
 
         <!-- Progress Bar -->
         <div class="progress-bar-container">
             <div id="progress-bar"></div>
         </div>
-
+        
         <div id="question">Question text here</div>
-
+            
         <!-- Options Buttons -->
         <div class="options">
             <button class="option" onclick="checkAnswer(0)">Option 1</button>
@@ -53,12 +45,6 @@
         </div>
     </div>
     
-    <!-- Score History Section -->
-    <div class="score-history-container" id="score-history" style="display: none;">
-        <h2>Score History</h2>
-        <ul id="score-list"></ul>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
