@@ -9,12 +9,17 @@ body {
 }
 
 .quiz-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 400px;
-    text-align: center;
+  display: flex;              /* Make the container a flex container */
+  flex-direction: column;     /* Arrange children in a column */
+  justify-content: space-between; /* Space items to take full height */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%; 
+  max-width: 400px; 
+  margin: auto; /* Center the container */
+  position: relative;
 }
 
 #quiz-title {
@@ -99,6 +104,7 @@ body {
 #score-container {
     margin-top: 20px;
     font-size: 16px;
+    
 }
 
 /* Sidebar */
@@ -137,21 +143,21 @@ body {
 }
 
 .toggle-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #e3000b;
+    position: absolute; /* Keep it absolute to position it relative to the quiz container */
+    top: 20px; /* Adjust top position as needed */
+    right: 20px; /* Align it to the right with some padding */
+    background-color: #e3000b; /* Red background */
     color: white;
     border: none;
     padding: 10px 15px;
     font-size: 1.2rem;
     cursor: pointer;
-    z-index: 1100;
-    transition: transform 0.3s ease-in-out;
+    z-index: 1100; /* Ensure it is above other elements */
+    transition: transform 0.3s ease-in-out; /* Transition effect */
 }
 
 .toggle-btn:hover {
-    transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg); /* Scale and rotate on hover */
 }
 
 .quiz-container {
@@ -199,23 +205,31 @@ body {
     background-color: #45a049;
 }
 
-/* Score History Section */
 .score-history-container {
-    padding: 20px;
-    background-color: #fff; /* Ensure it's distinct from the background */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;              /* Make the container a flex container */
+  flex-direction: column;     /* Arrange children in a column */
+  justify-content: space-between; /* Space items to take full height */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%; 
+  max-width: 400px; 
+  margin: auto; /* Center the container */
+  position: relative;
 }
+   
 
 #score-list {
     list-style-type: none;
-    padding: 80px;
+    padding: 0;
 }
 
 #score-list li {
-    background-color: #dffe34;
-    padding: 20px;
-    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
     font-size: 18px;
 }
 
