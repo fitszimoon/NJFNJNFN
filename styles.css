@@ -1,6 +1,6 @@
-body {
+body { 
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Adjusted background color */
+    background-color: #d9d9d9; /* Adjusted background color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,39 +8,39 @@ body {
     margin: 0;
 }
 
+/* Quiz Container Styles */
 .quiz-container {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 400px;
+    padding: 25px 50px;
+    width; 100%;
+    max-width: 400px;
     text-align: center;
+    box-shadow 0 0 0 10;
 }
 
-/* New class for shifting the quiz container */
+/* Shifted Quiz Container */
 .quiz-container.shifted {
-    margin-left: 250px; /* Adjust this value based on your sidebar width */
+    margin-left: 250px; /* Adjust based on sidebar width */
 }
 
+/* Title and Question Styles */
 #quiz-title {
     font-size: 24px;
     margin-bottom: 10px;
-    text-align: center;
 }
 
 #question {
     font-size: 22px; /* Adjusted font size */
     margin-bottom: 20px;
-    text-align: center;
 }
 
-/* Styles for the options */
+/* Options Styles */
 .options {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Change to column layout */
-    align-items: center; /* Center the buttons horizontally */
-    margin-bottom: 20px; /* Spacing around the options */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center buttons horizontally */
+    margin-bottom: 20px; /* Spacing around options */
 }
 
 .option {
@@ -50,11 +50,11 @@ body {
     border: none;
     padding: 10px;
     margin: 5px 0; /* Space between buttons */
-    cursor: pointer; /* Pointer on hover */
+    cursor: pointer;
     border-radius: 5px; /* Rounded corners */
     font-size: 1.5rem; /* Consistent font size */
     transition: background-color 0.3s, transform 0.3s; /* Smooth effect */
-    width: 100%; /* Set a consistent width for options */
+    width: 100%; /* Consistent width for options */
 }
 
 .option:hover {
@@ -62,11 +62,11 @@ body {
     transform: scale(1.1) rotate(-3deg);
 }
 
-/* Styles for the navigation buttons (Back and Next) */
+/* Navigation Buttons Styles */
 .button-container {
-    display: flex; /* Use flexbox for alignment */
+    display: flex;
     justify-content: space-between; /* Place buttons at opposite ends */
-    margin: 20px 0; /* Spacing around the buttons */
+    margin: 20px 0; /* Spacing around buttons */
 }
 
 .nav-button {
@@ -76,7 +76,7 @@ body {
     border-radius: 5px;
     background-color: #4caf50; /* Green background */
     color: white; /* Text color */
-    cursor: pointer; /* Pointer on hover */
+    cursor: pointer;
     flex: 1; /* Allow buttons to grow equally */
     margin: 0 5px; /* Space between buttons */
 }
@@ -85,14 +85,13 @@ body {
     background-color: #45a049; /* Darker green on hover */
 }
 
-/* Styles for the progress bar */
+/* Progress Bar Styles */
 .progress-bar-container {
     width: 100%;
     background-color: #f3f3f3;
     border-radius: 25px;
-    margin: 0; /* Remove margin if needed */
     height: 20px;
-    margin-top: 20px; /* Optional spacing below previous elements */
+    margin-top: -20px; /* Optional spacing */
 }
 
 #progress-bar {
@@ -102,13 +101,13 @@ body {
     border-radius: 25px;
 }
 
-/* Style for the score display */
+/* Score Display Style */
 #score-container {
     margin-top: 20px;
     font-size: 16px;
 }
 
-/* Sidebar */
+/* Sidebar Styles */
 .sidebar {
     background-color: #1e1e1e;
     width: 250px;
@@ -143,6 +142,7 @@ body {
     left: 0; /* Slide in the sidebar */
 }
 
+/* Toggle Button Styles */
 .toggle-btn {
     position: absolute;
     top: 20px;
@@ -159,4 +159,26 @@ body {
 
 .toggle-btn:hover {
     transform: scale(1.1) rotate(-3deg);
+}
+
+/* Feedback Styles */
+.feedback-correct, .feedback-wrong {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1200;
+    transition: opacity 0.5s ease;
+}
+
+.feedback-correct {
+    background-color: #4caf50;
+    color: white;
+}
+
+.feedback-wrong {
+    background-color: #e3000b;
+    color: white;
 }
