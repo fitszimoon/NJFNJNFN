@@ -7,33 +7,25 @@ body {
     height: 100vh;
     margin: 0;
 }
+
 .quiz-container {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 400px; /* Set a consistent width */
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Set a maximum width */
     text-align: center;
-    transition: margin-left 0.3s ease-in-out; /* Transition for smooth shifting */
-    margin-left: 0; /* Start with no margin */
 }
-.score-history-container {
-    margin-left: 0; /* Start with no margin */
-    transition: margin-left 0.3s ease-in-out; /* Transition for smooth shifting */
-}
-.quiz-container.shifted, .score-history-container.shifted {
-    margin-left: 250px; /* Shift by the width of the sidebar */
 
 #quiz-title {
     font-size: 24px;
     margin-bottom: 10px;
-    text-align: center;
 }
 
 #question {
     font-size: 22px; /* Adjusted font size */
     margin-bottom: 20px;
-    text-align: center;
 }
 
 /* Styles for the options */
@@ -45,7 +37,6 @@ body {
 }
 
 .option {
-    display: block;
     background-color: #3498db; /* Blue background color */
     color: white;
     border: none;
@@ -160,40 +151,36 @@ body {
 .toggle-btn:hover {
     transform: scale(1.1) rotate(-3deg);
 }
-/* Username Input Page */
-.username-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+
+.main-content.shifted {
+    margin-left: 250px;
+    transition: transform 0.3s ease-in-out;
 }
 
-#username-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#username-input {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 300px;
-    margin-bottom: 20px;
-}
-
-#start-quiz-btn {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#start-quiz-btn:hover {
-    background-color: #45a049;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .quiz-container {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+    
+    .sidebar {
+        width: 200px; /* Slightly smaller sidebar */
+    }
+    
+    .toggle-btn {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+    
+    .nav-button {
+        font-size: 14px;
+    }
+    
+    #question {
+        font-size: 20px; /* Smaller font size for smaller screens */
+    }
+    
+    .option {
+        font-size: 1.2rem; /* Adjust button font size */
+    }
 }
