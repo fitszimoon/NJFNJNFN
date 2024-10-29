@@ -187,3 +187,9 @@ body {
 .feedback-wrong {
     background-color: #e3000b;
     color: white;
+
+@media (max-width: 600px) {
+  body {
+    padding: 8px; /* Reduce padding */
+    font-size: 14px; /* Global font-size adjustment */
+  }
